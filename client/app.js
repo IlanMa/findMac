@@ -1,11 +1,13 @@
-var simulation = angular.module('findmac', ['ngRoute']);
+var findmac = angular.module('findmac', ['ngRoute']);
+'use strict';
 
 console.log("### APP JS")
 
-simulation.config(function ($routeProvider) {
+findmac.config(function ($routeProvider) {
   $routeProvider
     .when('/',{
-        templateUrl: 'views/landing.html'
+        templateUrl: 'views/landing.html',
+        controller: 'ScraperController'
     })
     .otherwise({
       redirectTo: '/'
