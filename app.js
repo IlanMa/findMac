@@ -13,10 +13,11 @@ app.listen(process.env.PORT || 3000, function() {
 
 app.get('/kjj', function(req, res) {
     var pageURL = '',
-        page = 0,
+        page = 1,
         data = 0,
         obj = {};
-    do {
+    while (page <= 10) {
+        pageURL = "/page-" + page;
         request({
             uri: "http://www.kijiji.ca/b-ville-de-montreal/macbook" + pageURL + "/k0l1700281",
         }, function(error, response, body) {
@@ -41,10 +42,7 @@ app.get('/kjj', function(req, res) {
                     }
                 }
             })
-            console.log(obj)
-
         })
         page++;
-        pageURL = "/page-" + page;
-    } while (page < 10)
+    }
 })
