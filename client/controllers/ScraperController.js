@@ -5,12 +5,14 @@ findmac.controller('ScraperController', [
         $scope,
         $http) {
 
-    	console.log("### Scraper Controller")
+        console.log("### Scraper Controller")
 
-    	$http.get('/kjj').then(function(res){
-    		console.log(res)
-    	}, function(err) {
-    		console.log(err);
-    	})
+        $scope.search = function(location) {
+            $http.get('/kijiji', {params: {location: location}}).then(function(res) {
+                console.log(res)
+            }, function(err) {
+                console.log(err);
+            })
+        }
     }
 ])

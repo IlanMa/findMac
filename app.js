@@ -11,7 +11,7 @@ app.listen(process.env.PORT || 3000, function() {
     console.log("Running Server...")
 });
 
-app.get('/kjj', function(req, res) {
+app.get('/kijiji', function(req, res) {
     var pageURL = '',
         page = 1,
         data = 0,
@@ -19,7 +19,7 @@ app.get('/kjj', function(req, res) {
     while (page <= 10) {
         pageURL = "/page-" + page;
         request({
-            uri: "http://www.kijiji.ca/b-ville-de-montreal/macbook" + pageURL + "/k0l1700281",
+            uri: "http://www.kijiji.ca/b-" + req.query.location + "/macbook" + pageURL + "/k0l1700281",
         }, function(error, response, body) {
             var $ = cheerio.load(body);
             $('tr').each(function(i, element) {
@@ -33,16 +33,16 @@ app.get('/kjj', function(req, res) {
                     var $price = $(element).find('.price').text().trim();
                     var $image = $(element).find('.image').find('img').attr('src').trim();
                     obj[data++] = {
-                        urlTxt: $urlTxt,
-                        urlRef: $urlRef,
-                        description: $description,
-                        price: $price,
-                        image: $image,
-                        date: $posted
-                    }
-                    // once data is 200, scraping is complete
+                            urlTxt: $urlTxt,
+                            urlRef: $urlRef,
+                            description: $description,
+                            price: $price,
+                            image: $image,
+                            date: $posted
+                        }
+                        // once data is 200, scraping is complete
                     if (data === 200) {
-                    	console.log(obj)
+                        res.send(obj)
                     }
                 }
             })
