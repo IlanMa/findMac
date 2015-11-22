@@ -40,6 +40,10 @@ app.get('/kjj', function(req, res) {
                         image: $image,
                         date: $posted
                     }
+                    // once data is 200, scraping is complete
+                    if (data === 200) {
+                    	console.log(obj)
+                    }
                 }
             })
         })
