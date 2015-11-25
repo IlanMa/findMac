@@ -1,16 +1,20 @@
 <!-- style/main.css -->
-<!-- contraollers/scrapperController -->
-
+<!-- controllers/scrapperController -->
 <!-- Container for Background Image and Blue Effect -->
 <div class="home-page-blur"></div>
 <!-- Home Page Container -->
 <div class="home-page-container">
-	<div class="home-page-opacity">
-		<h1 class="home-page-title">Find a MacBook</h1>
-		<input type="text" placeholder="Search Any Location" ng-model="location">	
-		<span class="ion-android-search search-icon" ng-click="search(location)"></span>
-		<ul class="auto-suggestion" ng-show="location.length">
-			<li ng-repeat="loc in locations | filter:location">{{loc}}</li>	
-		</ul>
-	</div>
+    <div class="home-page-opacity">
+        <!-- Title -->
+        <h1 class="home-page-title">Find a MacBook</h1>
+        <!-- Input Container -->
+        <div class="input-container">
+            <input type="text" placeholder="Search Any Location" ng-model="location" ng-class="{'border-radius': (location.length && filteredItems.length !== 0)}">
+            <span class="ion-android-search search-icon" ng-click="search(location)"></span>
+        </div>
+        <!-- Suggestion Container -->
+        <ul class="auto-suggestion" ng-show="location.length">
+            <li ng-repeat="loc in (filteredItems = (locations | filter:location))">{{loc}}</li>
+        </ul>
+    </div>
 </div>

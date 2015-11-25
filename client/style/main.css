@@ -53,10 +53,16 @@ body {
     margin-top: 15%;
 }
 
+.input-container {
+	position: relative;
+	width: 600px;
+	margin: auto;
+}
+
 
 /* Search Area Input Field */
 
-.home-page-container input {
+.input-container > input {
     width: 600px;
     height: 35px;
     padding: 0 10px;
@@ -67,15 +73,19 @@ body {
     color: white;
 }
 
+.input-container > .border-radius {
+	border-radius: 15px 15px 0 0;
+}
+
 
 /* Input Field Search Icon */
 
-.search-icon {
-    position: relative;
-    color: white;
-    top: 1px;
-    left: -40px;
+.input-container .search-icon {
+    position: absolute;
+    top: 8px;
+    right: 16px;
     font-size: 20px;
+    color: white
 }
 
 
@@ -84,7 +94,19 @@ body {
 .auto-suggestion {
     position: relative;
     margin: auto;
+    padding: 0 0 5px 0;
     width: 600px;
     height: auto;
-    background: red;
+    text-align: left;
+    font-size: 22px;
+    color: white;
+    background: rgba(100, 100, 100, 0.6);
+    border-radius: 0 0 20px 20px;
+}
+
+/* Individual Suggestions */
+
+.auto-suggestion > li {
+	padding: 2px 0 2px 10px;
+    list-style-type: none;
 }
