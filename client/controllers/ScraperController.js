@@ -1,11 +1,15 @@
 findmac.controller('ScraperController', [
     '$scope',
     '$http',
+    'LocationService',
     function(
         $scope,
-        $http) {
+        $http,
+        LocationService) {
 
         console.log("### Scraper Controller")
+
+        $scope.locations = LocationService.getAvailableLocations();
 
         $scope.search = function(location) {
             $http.get('/kijiji', {params: {location: location}}).then(function(res) {

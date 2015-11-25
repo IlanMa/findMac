@@ -9,5 +9,8 @@
 		<h1 class="home-page-title">Find a MacBook</h1>
 		<input type="text" placeholder="Search Any Location" ng-model="location">	
 		<span class="ion-android-search search-icon" ng-click="search(location)"></span>
+		<ul class="auto-suggestion" ng-show="location.length">
+			<li ng-repeat="loc in locations | filter:location">{{loc}}</li>	
+		</ul>
 	</div>
 </div>

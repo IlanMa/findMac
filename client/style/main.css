@@ -2,13 +2,16 @@ body {
     margin: 0;
 }
 
+
 /* Removes Input Border Focus */
+
 *:focus {
     outline: none;
 }
 
+
 /* Home Page Blue */
- 
+
 .home-page-blur {
     position: fixed;
     width: 100%;
@@ -64,11 +67,24 @@ body {
     color: white;
 }
 
+
 /* Input Field Search Icon */
+
 .search-icon {
-	position: relative;
-	color: white;
-	top: 1px;
-	left: -40px;
-	font-size: 20px;
+    position: relative;
+    color: white;
+    top: 1px;
+    left: -40px;
+    font-size: 20px;
+}
+
+
+/* Auto suggestion container */
+
+.auto-suggestion {
+    position: relative;
+    margin: auto;
+    width: 600px;
+    height: auto;
+    background: red;
 }
