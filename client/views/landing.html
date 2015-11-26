@@ -13,7 +13,7 @@
             <span class="ion-android-search search-icon" ng-click="search(location)"></span>
         </div>
         <!-- Suggestion Container -->
-        <ul class="auto-suggestion" ng-show="location.length">
+        <ul class="auto-suggestion" ng-show="location.length && filteredItems.length !== 0">
             <li ng-repeat="loc in (filteredItems = (locations | filter:location))">{{loc}}</li>
         </ul>
     </div>

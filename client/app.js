@@ -9,6 +9,10 @@ findmac.config(function ($routeProvider) {
         templateUrl: 'views/landing.html',
         controller: 'ScraperController'
     })
+    .when('/result', {
+    	templateUrl: 'views/result.html',
+    	controller: 'ResultController'
+    })
     .otherwise({
       redirectTo: '/'
     });
