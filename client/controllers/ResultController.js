@@ -3,7 +3,7 @@ findmac.controller('ResultController', [
     function(
         $scope) {
 
-    	console.log("### ResultController")
+    	console.log("### ResultController");
 
     }
 ])
